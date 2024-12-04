@@ -32,13 +32,13 @@ let xLast, yLast, drawing, erasing;
 canvas.onmousemove = e => {
     if (xLast || yLast) {
         if (drawing) {
-            drawLine(xLast, yLast, e.layerX, e.layerY);
+            drawLine(xLast, yLast, e.offsetX, e.offsetY);
         } else if (erasing) {
-            eraseLine(xLast, yLast, e.layerX, e.layerY);
+            eraseLine(xLast, yLast, e.offsetX, e.offsetY);
         } 
     }
-    xLast = e.layerX;
-    yLast = e.layerY;
+    xLast = e.offsetX;
+    yLast = e.offsetY;
 }
 
 canvas.onmousedown = e => {
